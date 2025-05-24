@@ -10,7 +10,8 @@ def clean_text(text):
  text = text.lower()
  return text
 
-model = tf.keras.models.load_model("sentiment_gru_model.keras")
+model = tf.keras.models.load_model("sentiment_gru_model.h5")
+
 with open("tokenizer.pkl", "rb") as f:
  tokenizer = pickle.load(f)
 
