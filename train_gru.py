@@ -54,11 +54,15 @@ model.fit(X_train, y_train, epochs=3, batch_size=128, validation_split=0.2)
 # Save model as Keras format
 model.save_weights("gru_model.weights.h5")
 
-with open("tokenizer.pkl", "wb") as f:
-    pickle.dump(tokenizer, f)
+import json
+
+tokenizer_json = tokenizer.to_json()
+with open("tokenizer.json", "w", encoding="utf-8") as f:
+    f.write(tokenizer_json)
 
 
 
-import pickle
-with open("tokenizer.pkl", "wb") as f:
-    pickle.dump(tokenizer, f)
+
+# import pickle
+# with open("tokenizer.pkl", "wb") as f:
+#     pickle.dump(tokenizer, f)

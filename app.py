@@ -14,8 +14,12 @@ def clean_text(text):
     return text
 
 # Load tokenizer
-with open("tokenizer.pkl", "rb") as f:
-    tokenizer = pickle.load(f)
+from tensorflow.keras.preprocessing.text import tokenizer_from_json
+import json
+
+with open("tokenizer.json", "r", encoding="utf-8") as f:
+    tokenizer_json = f.read()
+    tokenizer = tokenizer_from_json(tokenizer_json)
 
 # Rebuild the model architecture
 model = Sequential([
