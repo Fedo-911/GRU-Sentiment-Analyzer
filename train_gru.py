@@ -51,7 +51,8 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 model.fit(X_train, y_train, epochs=3, batch_size=128, validation_split=0.2)
 
 # Save model as Keras format
-model.save("sentiment_gru_model.h5")
+model.save("sentiment_gru_model.h5", save_format="h5")
+
 
 import pickle
 with open("tokenizer.pkl", "wb") as f:
